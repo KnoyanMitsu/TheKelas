@@ -1,0 +1,32 @@
+from django.conf.urls import url
+from sales import views
+
+urlpatterns = [
+	url(r'^product-categories/$', 
+		views.ProductCategoryList.as_view(), 
+		name=views.ProductCategoryList.name),
+	url(r'^product-categories/(?P<pk>[0-9]+)$', 
+		views.ProductCategoryDetail.as_view(), 
+		name = views.ProductCategoryDetail.name),
+	url(r'^products/$', 
+		views.ProductList.as_view(), 
+		name=views.ProductList.name),
+	url(r'^products/(?P<pk>[0-9]+)$', 
+		views.ProductDetail.as_view(), 
+		name = views.ProductDetail.name),
+	url(r'^receipts/$', 
+		views.ReceiptList.as_view(), 
+		name=views.ReceiptList.name),
+	url(r'^receipts/(?P<pk>[0-9]+)$', 
+		views.ReceiptDetail.as_view(), 
+		name = views.ReceiptDetail.name),
+	url(r'^sales/$', 
+		views.SalesList.as_view(), 
+		name=views.SalesList.name),
+	url(r'^sales/(?P<pk>[0-9]+)$', 
+		views.SalesDetail.as_view(), 
+		name = views.SalesDetail.name),
+	url(r'^$',
+		views.ApiRoot.as_view(),
+		name = views.ApiRoot.name),
+]
